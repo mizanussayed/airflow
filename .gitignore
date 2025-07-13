@@ -1,0 +1,10 @@
+# Add this to .gitignore to protect sensitive information
+.env
+*.log
+logs/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.vscode/
+.idea/

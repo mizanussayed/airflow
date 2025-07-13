@@ -1,0 +1,230 @@
+{
+  "extraction_date": "2025-07-12T16:55:57.808730",
+  "database": "medi_concern_test",
+  "connection_id": "medi_concern_postgres",
+  "total_tables": 37,
+  "tables": [
+    {
+      "table_schema": "public",
+      "table_name": "Appointments",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Appointments"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Articles",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Articles"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetRoleClaims",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetRoleClaims"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetRoles",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetRoles"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetUserClaims",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetUserClaims"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetUserLogins",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetUserLogins"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetUserRoles",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetUserRoles"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetUserTokens",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetUserTokens"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "AspNetUsers",
+      "table_type": "BASE TABLE",
+      "full_name": "public.AspNetUsers"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Benefits",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Benefits"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "BlogCategories",
+      "table_type": "BASE TABLE",
+      "full_name": "public.BlogCategories"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Cities",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Cities"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "CommandQueries",
+      "table_type": "BASE TABLE",
+      "full_name": "public.CommandQueries"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Consultancies",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Consultancies"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Countries",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Countries"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Degrees",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Degrees"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "DoctorSpecialities",
+      "table_type": "BASE TABLE",
+      "full_name": "public.DoctorSpecialities"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "DoctorTreatments",
+      "table_type": "BASE TABLE",
+      "full_name": "public.DoctorTreatments"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Doctors",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Doctors"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Facilities",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Facilities"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "HospitalDoctors",
+      "table_type": "BASE TABLE",
+      "full_name": "public.HospitalDoctors"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "HospitalFacilities",
+      "table_type": "BASE TABLE",
+      "full_name": "public.HospitalFacilities"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "HospitalImages",
+      "table_type": "BASE TABLE",
+      "full_name": "public.HospitalImages"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "HospitalSpecialities",
+      "table_type": "BASE TABLE",
+      "full_name": "public.HospitalSpecialities"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "HospitalTreatments",
+      "table_type": "BASE TABLE",
+      "full_name": "public.HospitalTreatments"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Hospitals",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Hospitals"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "MedicalPackages",
+      "table_type": "BASE TABLE",
+      "full_name": "public.MedicalPackages"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Menu",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Menu"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Menus",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Menus"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "RefreshToken",
+      "table_type": "BASE TABLE",
+      "full_name": "public.RefreshToken"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "RoleCommandQueries",
+      "table_type": "BASE TABLE",
+      "full_name": "public.RoleCommandQueries"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "RoleMenu",
+      "table_type": "BASE TABLE",
+      "full_name": "public.RoleMenu"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "RoleMenus",
+      "table_type": "BASE TABLE",
+      "full_name": "public.RoleMenus"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Specialities",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Specialities"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "Treatments",
+      "table_type": "BASE TABLE",
+      "full_name": "public.Treatments"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "VisaProcesses",
+      "table_type": "BASE TABLE",
+      "full_name": "public.VisaProcesses"
+    },
+    {
+      "table_schema": "public",
+      "table_name": "__EFMigrationsHistory",
+      "table_type": "BASE TABLE",
+      "full_name": "public.__EFMigrationsHistory"
+    }
+  ]
+}
