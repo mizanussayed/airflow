@@ -9,10 +9,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy user creation script
-COPY create_user.py /opt/airflow/create_user.py
-RUN chmod +x /opt/airflow/create_user.py
-
 # Switch back to airflow user
 USER airflow
 

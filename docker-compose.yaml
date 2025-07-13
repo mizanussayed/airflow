@@ -1,3 +1,6 @@
+# Production Docker Compose Configuration for Apache Airflow 3.0.0
+# Updated with working standalone configuration and latest best practices
+
 # Common configuration for Airflow services
 x-airflow-common:
   &airflow-common
@@ -14,6 +17,10 @@ x-airflow-common:
     AIRFLOW__CORE__MAX_ACTIVE_TASKS_PER_DAG: ${AIRFLOW__CORE__MAX_ACTIVE_TASKS_PER_DAG}
     AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: ${AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG}
     AIRFLOW__LOGGING__LOGGING_LEVEL: ${AIRFLOW__LOGGING__LOGGING_LEVEL}
+    AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: ${AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT}
+    AIRFLOW__CORE__DEFAULT_TASK_RETRIES: ${AIRFLOW__CORE__DEFAULT_TASK_RETRIES}
+    AIRFLOW__CELERY__WORKER_CONCURRENCY: ${AIRFLOW__CELERY__WORKER_CONCURRENCY}
+    AIRFLOW__CELERY__WORKER_PREFETCH_MULTIPLIER: ${AIRFLOW__CELERY__WORKER_PREFETCH_MULTIPLIER}
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -24,11 +31,10 @@ x-airflow-common:
   depends_on:
     postgres:
       condition: service_healthy
-    airflow-init:
-      condition: service_completed_successfully
   restart: unless-stopped
 
 services:
+  # PostgreSQL Database
   postgres:
     image: postgres:15
     restart: unless-stopped
@@ -53,6 +59,7 @@ services:
     networks:
       - airflow-network
 
+  # Database Migration and Initialization
   airflow-init:
     <<: *airflow-common
     restart: "no"
@@ -67,9 +74,10 @@ services:
         echo 'Database migration completed. Please create admin user manually via UI.'
       "
 
-  webserver:
+  # Airflow Web Server - Production-ready single service (recommended for single-machine deployments)
+  web-server:
     <<: *airflow-common
-    container_name: airflow-webserver
+    container_name: web-server
     ports:
       - "127.0.0.1:8080:8080"
     environment:
@@ -81,29 +89,16 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 60s
     deploy:
       resources:
         limits:
-          memory: 2G
-          cpus: '2'
-    command: api-server
-
-  scheduler:
-    <<: *airflow-common
-    container_name: airflow-scheduler
-    healthcheck:
-      test: ["CMD", "airflow", "jobs", "check", "--job-type", "SchedulerJob", "--local"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
-    deploy:
-      resources:
-        limits:
-          memory: 2G
-          cpus: '2'
-    command: scheduler
+          memory: 4G
+          cpus: '3'
+    command: standalone
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
 
 volumes:
   postgres-db-volume:
@@ -111,4 +106,3 @@ volumes:
 networks:
   airflow-network:
     driver: bridge
-
