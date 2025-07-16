@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Get Airflow Admin Password Script - Web Server Mode
-
 echo "🔍 Retrieving Airflow admin password from logs..."
 
 # Extract password from web-server logs

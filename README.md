@@ -316,20 +316,6 @@ docker system prune -f
 docker-compose pull && docker-compose up -d
 ```
 
-## 🏆 Production Checklist
-
-- [x] Environment variables configured
-- [x] Secrets generated and secured
-- [x] Resource limits appropriate for workload
-- [x] Health checks passing
-- [x] DAGs loading without errors
-- [x] Log cleanup DAG scheduled
-- [x] Monitoring configured
-- [x] Standalone mode deployed
-- [x] Admin password configured
-- [ ] Backup strategy implemented
-- [ ] Security hardening applied
-
 ## 🔑 Access Information
 
 After successful deployment with `./deploy.sh`:
@@ -343,12 +329,6 @@ After successful deployment with `./deploy.sh`:
 ```bash
 # Method 1: Use the password script
 ./get-password.sh
-
-# Method 2: Check your .env file directly
-grep AIRFLOW_ADMIN_PASSWORD .env
-
-# Method 3: View from environment
-source .env && echo $AIRFLOW_ADMIN_PASSWORD
 ```
 
 ### First Login Steps
@@ -369,4 +349,3 @@ source .env && echo $AIRFLOW_ADMIN_PASSWORD
 - **Auto-Created Admin**: Admin user is automatically created using environment variables
 - **Health Checks**: Deployment script waits for service health before completing
 - **Resource Requirements**: Minimum 4GB RAM, 3 CPUs recommended for stable operation
-- **Security**: All secrets must be properly configured before deployment will succeed

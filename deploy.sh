@@ -6,29 +6,6 @@ set -e
 
 echo "🚀 Starting Airflow Production Deployment (Web Server Mode)..."
 
-# Extract admin password from logs
-echo "🔑 Extracting admin password from logs..."
-sleep 5
-PASSWORD=$(docker-compose logs web-server 2>/dev/null | grep -o "Password for user 'admin': [a-zA-Z0-9]*" | head -1 | cut -d' ' -f5)
-
-echo ""
-echo "✅ Airflow is now running with web-server!"
-echo "🌐 Access the web interface at: http://localhost:8080"
-echo "👤 Username: admin"
-if [ -n "$PASSWORD" ]; then
-    echo "🔑 Password: $PASSWORD"
-else
-    echo "🔑 Password: Check logs with 'docker-compose logs web-server | grep Password'"
-fi
-echo ""
-echo "📊 To view logs: docker-compose logs -f"
-echo "🛑 To stop: docker-compose down"
-echo ""
-echo "� Note: Using standalone mode - all Airflow components run in web-server container"📊 To view logs: docker-compose logs -f"
-echo "🛑 To stop: docker-compose down"
-echo ""
-echo "💡 Note: Using standalone mode - all Airflow components run in web-server container"Airflow Production Deployment (Standalone Mode)..."
-
 # Check if Docker is running
 if ! docker info >/dev/null 2>&1; then
     echo "❌ Docker is not running. Please start Docker and try again."
@@ -107,14 +84,17 @@ done
 # Check service status
 echo "🔍 Final service status:"
 docker-compose ps
-
 echo ""
+sleep 5
+PASSWORD=$(docker-compose logs web-server 2>/dev/null | grep -o "Password for user 'admin': [a-zA-Z0-9]*" | head -1 | cut -d' ' -f5)
 echo "✅ Airflow is now running with web-server!"
 echo "🌐 Access the web interface at: http://localhost:8080"
 echo "👤 Username: admin"
-echo "🔑 Password: Set in your .env file (AIRFLOW_ADMIN_PASSWORD)"
+if [ -n "$PASSWORD" ]; then
+    echo "🔑 Password: $PASSWORD"
+else
+    echo "🔑 Password: Check logs with 'docker-compose logs web-server | grep Password'"
+fi
 echo ""
-echo "� To view logs: docker-compose logs -f"
-echo "� To stop: docker-compose down"
-echo ""
-echo "� Note: Using standalone mode - all Airflow components run in a single container"
+echo "📊 To view logs: docker-compose logs -f"
+echo "🛑 To stop: docker-compose down"

@@ -1,6 +1,3 @@
-# Production Docker Compose Configuration for Apache Airflow 3.0.0
-# Updated with working standalone configuration and latest best practices
-
 # Common configuration for Airflow services
 x-airflow-common:
   &airflow-common
